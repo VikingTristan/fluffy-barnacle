@@ -1,24 +1,3 @@
-# printable-profile-card
+# Creates some crazy informative profile cards ready for printing
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+![image](https://user-images.githubusercontent.com/26485094/72900549-60308480-3d28-11ea-8503-bb89da82b2e8.png)
