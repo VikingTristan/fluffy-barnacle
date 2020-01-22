@@ -9,6 +9,8 @@
                     v-if="icons.phone">
                 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn3.iconfinder.com%2Fdata%2Ficons%2Fminiglyphs%2F500%2F063-512.png&f=1&nofb=1"
                     v-if="icons.email">
+                <img src="https://i7.pngguru.com/preview/150/236/916/computer-icons-skype-social-media-download-skype.jpg"
+                    v-if="icons.skype">
             </div>
         </div>
         <header class="card-header">

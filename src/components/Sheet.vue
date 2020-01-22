@@ -44,6 +44,10 @@
                 <input type="checkbox" id="togglebox-example-3" v-model="icons.email" />
                 <label for="togglebox-example-3">Email</label>
             </div>
+            <div class="togglebox">
+                <input type="checkbox" id="togglebox-example-4" v-model="icons.skype" />
+                <label for="togglebox-example-4">Skype</label>
+            </div>
             <legend>Theme</legend>
             <div class="radio">
                 <input type="radio" id="radio-example-1" name="theme" value="swedbankpay" v-model="theme" />
@@ -66,16 +70,17 @@
             return {
                 tempProfiles: [],
                 avatar: 'https://picsum.photos/300/?random',
-                name: 'Nicholas Cage',
-                email: 'nicholas.cage@theone.com',
-                role: "Some role",
+                name: 'Bob Corlsan',
+                email: 'bob@corlsan.com',
+                role: "Corlsanius",
                 bio: 'Back in my day...',
                 theme: "swedbankpay",
                 tempFile: null,
                 icons: {
                     slack: false,
                     phone: false,
-                    email: false
+                    email: false,
+                    skype: false
                 }
             }
         },
@@ -112,7 +117,8 @@
                     icons: {
                         slack: this.icons.slack,
                         phone: this.icons.phone,
-                        email: this.icons.email
+                        email: this.icons.email,
+                        skype: this.icons.skype
                     },
                 })
                 this.$emit("input", this.tempProfiles);
