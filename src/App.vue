@@ -52,6 +52,7 @@
     },
     methods: {
       openSheet() {
+        window.dg.sheet.init();
         window.dg.sheet.open("profile-sheet");
       }
     }
