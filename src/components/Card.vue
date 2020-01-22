@@ -33,6 +33,10 @@
         border: 1px dotted gray;
     }
 
+    .card .card-header {
+        word-wrap: break-word;
+    }
+
     .card .card-img {
         position: relative;
     }
