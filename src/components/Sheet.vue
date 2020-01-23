@@ -1,70 +1,82 @@
 <template>
-    <div class="sheet" id="profile-sheet">
-        <section>
-            <div class="form-group">
-                <label for="first-name">Avatar</label>
-                <div class="input-group">
-                    <input type="file" ref="file" accept="image/*" @change="fileUpload" multiple>
+    <div>
+        <div class="sheet" id="profile-sheet">
+            <section>
+                <div class="form-group">
+                    <label for="first-name">Avatar</label>
+                    <div class="input-group">
+                        <input type="file" ref="file" accept="image/*" @change="fileUpload" multiple>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="name">Name</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="name" v-model="name" />
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="name" v-model="name" />
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="email" autoComplete="email" v-model="email" />
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="email" autoComplete="email" v-model="email" />
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="role">Role</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="role" v-model="role" />
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="role" v-model="role" />
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="bio">Bio</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="bio" v-model="bio" />
+                <div class="form-group">
+                    <label for="bio">Bio</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="bio" v-model="bio" />
+                    </div>
                 </div>
-            </div>
-            <legend>Icons</legend>
-            <div class="togglebox">
-                <input type="checkbox" id="togglebox-example-1" v-model="icons.slack" />
-                <label for="togglebox-example-1">Slack</label>
-            </div>
-            <div class="togglebox">
-                <input type="checkbox" id="togglebox-example-2" v-model="icons.phone" />
-                <label for="togglebox-example-2">Phone</label>
-            </div>
-            <div class="togglebox">
-                <input type="checkbox" id="togglebox-example-3" v-model="icons.email" />
-                <label for="togglebox-example-3">Email</label>
-            </div>
-            <div class="togglebox">
-                <input type="checkbox" id="togglebox-example-4" v-model="icons.skype" />
-                <label for="togglebox-example-4">Skype</label>
-            </div>
-            <legend>Theme</legend>
-            <div class="radio">
-                <input type="radio" id="radio-example-1" name="theme" value="swedbankpay" v-model="theme" />
-                <label for="radio-example-1">Swedbank Pay</label>
-            </div>
-            <div class="radio">
-                <input type="radio" id="radio-example-2" name="theme" value="payex" v-model="theme" />
-                <label for="radio-example-2">PayEx</label>
-            </div>
-            <div class="form-group mt-5">
-                <button class="btn btn-executive btn-lg" @click="createCard()">Create card</button>
-            </div>
-        </section>
+                <legend>Icons</legend>
+                <div class="togglebox">
+                    <input type="checkbox" id="togglebox-example-1" v-model="icons.slack" />
+                    <label for="togglebox-example-1">Slack</label>
+                </div>
+                <div class="togglebox">
+                    <input type="checkbox" id="togglebox-example-2" v-model="icons.phone" />
+                    <label for="togglebox-example-2">Phone</label>
+                </div>
+                <div class="togglebox">
+                    <input type="checkbox" id="togglebox-example-3" v-model="icons.email" />
+                    <label for="togglebox-example-3">Email</label>
+                </div>
+                <div class="togglebox">
+                    <input type="checkbox" id="togglebox-example-4" v-model="icons.skype" />
+                    <label for="togglebox-example-4">Skype</label>
+                </div>
+                <legend>Theme</legend>
+                <div class="radio">
+                    <input type="radio" id="radio-example-1" name="theme" value="swedbankpay" v-model="theme" />
+                    <label for="radio-example-1">Swedbank Pay</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" id="radio-example-2" name="theme" value="payex" v-model="theme" />
+                    <label for="radio-example-2">PayEx</label>
+                </div>
+                <div class="form-group mt-5">
+                    <button class="btn btn-executive btn-lg" @click="createCard()">Create card</button>
+                </div>
+            </section>
+        </div>
+
+        <div class="card-preview">
+            <h2>Card Preview</h2>
+            <profile-card :avatar="avatar" :icons="icons" :name="name" :email="email" :role="role"
+                :bio="bio" :theme="theme" />
+        </div>
     </div>
 </template>
 <script>
+    import ProfileCard from "./Card";
     export default {
+        components: {
+            ProfileCard
+        },
         props: ["value"],
         data: () => {
             return {
@@ -127,3 +139,19 @@
         }
     }
 </script>
+
+<style>
+    .card-preview {
+        display: none;
+    }
+
+    body.sheet-open .card-preview {
+        display: block;
+        z-index: 999999;
+        position: absolute;
+        top: 260px;
+        right: 600px;
+        background-color: #fff;
+        padding: 40px;
+    }
+</style>
